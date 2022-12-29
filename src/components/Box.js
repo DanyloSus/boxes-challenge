@@ -1,7 +1,16 @@
 import React from "react"
 
-export default function Box (props) {
-    return(<div className="box" key={props.id}
-        style={{backgroundColor: props.on ? "#222" : "#ccc"}}
-    ></div>);
+export default function Box(props) {
+    const styles = {
+        backgroundColor: props.on ? "#222222" : "transparent"
+    }
+    
+    return (
+        <div 
+            style={styles} 
+            className="box"
+            onClick={props.toggle}
+        >
+        </div>
+    )
 }
