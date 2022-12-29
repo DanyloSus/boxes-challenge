@@ -1,19 +1,27 @@
 import React from "react"
 import boxes from "./boxes"
+import Box from "./components/Box"
 
 export default function App() {
-    const [boxesArr, setBoxes] = React.useState(boxes)
-
-    console.log(boxesArr)
-
-    const box = boxesArr.map(item => (
-      <p key={item.id}>{item.id}</p>
+    const [squares, setSquares] = React.useState(boxes)
+    
+    const squareElements = squares.map(square => (
+        <Box id={square.id} on={square.on} />
     ))
-
+    /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Box" and
+     *    replace the `div` above with our <Box /> components
+     * 2. Pass the Box component a prop called `on` with the
+     *    value of the same name from the `boxes` objects
+     * 3. In the Box component, apply dynamic styles to determine
+     *    the backgroundColor of the box. If it's `on`, set the
+     *    backgroundColor to "#222222". If off, set it to "none"
+     */
+    
     return (
         <main>
-            <h1>Boxes will go here</h1>
-            {box}
+            {squareElements}
         </main>
     )
 }
